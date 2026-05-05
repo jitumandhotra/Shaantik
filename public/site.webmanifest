@@ -1,0 +1,17 @@
+{
+  "name": "Shaantik",
+  "short_name": "Shaantik",
+  "description": "Creative digital agency for websites, mobile apps, branding, SEO, digital marketing, AI automation, data science, and Salesforce solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#110b17",
+  "theme_color": "#110b17",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

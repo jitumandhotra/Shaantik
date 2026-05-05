@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <style>
+          @keyframes scan { 0%{transform:translateY(0)} 100%{transform:translateY(180px)} }
+          @keyframes ping { 0%{r:8;opacity:0.8} 100%{r:28;opacity:0} }
+          @keyframes fadePop { 0%,100%{opacity:0.4} 50%{opacity:1} }
+          @keyframes dashMove { to{stroke-dashoffset:-20} }
+          .scanner{animation:scan 3s ease-in-out infinite alternate}
+          .ping1{animation:ping 2s ease-out infinite}
+          .ping2{animation:ping 2s ease-out infinite 0.7s}
+          .ping3{animation:ping 2s ease-out infinite 1.4s}
+          .fp1{animation:fadePop 2.5s ease-in-out infinite}
+          .fp2{animation:fadePop 2.5s ease-in-out infinite 0.5s}
+          .fp3{animation:fadePop 2.5s ease-in-out infinite 1s}
+          .fp4{animation:fadePop 2.5s ease-in-out infinite 1.5s}
+          .dm{stroke-dasharray:6 4;animation:dashMove 1.5s linear infinite}
+        </style>
+      </defs>
+
+      <!-- Background -->
+      <rect width="500" height="260" fill="#0a0014"/>
+      <!-- Grid -->
+      <g stroke="#ffffff" stroke-width="0.3" opacity="0.06">
+        <line x1="0" y1="52" x2="500" y2="52"/><line x1="0" y1="104" x2="500" y2="104"/>
+        <line x1="0" y1="156" x2="500" y2="156"/><line x1="0" y1="208" x2="500" y2="208"/>
+        <line x1="62" y1="0" x2="62" y2="260"/><line x1="124" y1="0" x2="124" y2="260"/>
+        <line x1="186" y1="0" x2="186" y2="260"/><line x1="248" y1="0" x2="248" y2="260"/>
+        <line x1="310" y1="0" x2="310" y2="260"/><line x1="372" y1="0" x2="372" y2="260"/>
+        <line x1="434" y1="0" x2="434" y2="260"/>
+      </g>
+
+      <!-- Purple ambient glow -->
+      <ellipse cx="160" cy="130" rx="140" ry="100" fill="#7700CC" opacity="0.12"/>
+      <ellipse cx="380" cy="100" rx="100" ry="80" fill="#FF2D78" opacity="0.08"/>
+
+      <!-- Big magnifying glass -->
+      <circle cx="180" cy="128" r="80" fill="none" stroke="#9B5CF6" stroke-width="2" opacity="0.5"/>
+      <circle cx="180" cy="128" r="80" fill="#120026" opacity="0.7"/>
+      <!-- inner detail -->
+      <circle cx="180" cy="128" r="65" fill="none" stroke="#9B5CF6" stroke-width="0.6" opacity="0.3" stroke-dasharray="4 6"/>
+      <!-- Handle -->
+      <line x1="240" y1="188" x2="290" y2="238" stroke="#9B5CF6" stroke-width="8" stroke-linecap="round"/>
+      <line x1="240" y1="188" x2="290" y2="238" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+
+      <!-- Scanner line inside glass -->
+      <g clip-path="url(#glassClip)">
+        <rect class="scanner" x="112" y="70" width="136" height="2" fill="#FF2D78" opacity="0.8"/>
+        <rect class="scanner" x="112" y="70" width="136" height="8" fill="#FF2D78" opacity="0.1"/>
+      </g>
+      <defs>
+        <clipPath id="glassClip"><circle cx="180" cy="128" r="78"/></clipPath>
+      </defs>
+
+      <!-- Data nodes inside magnifier -->
+      <circle cx="155" cy="105" r="5" fill="#FF2D78" opacity="0.9"/>
+      <circle cx="200" cy="118" r="4" fill="#FF7A1A" opacity="0.9"/>
+      <circle cx="170" cy="145" r="6" fill="#9B5CF6" opacity="0.9"/>
+      <circle cx="210" cy="148" r="3.5" fill="#00C896" opacity="0.9"/>
+      <line x1="155" y1="105" x2="200" y2="118" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+      <line x1="200" y1="118" x2="210" y2="148" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+      <line x1="155" y1="105" x2="170" y2="145" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+      <line x1="170" y1="145" x2="210" y2="148" stroke="#ffffff" stroke-width="0.8" opacity="0.3"/>
+
+      <!-- Ping circles right side — insights -->
+      <circle class="ping1" cx="370" cy="90" r="8" fill="none" stroke="#FF2D78" stroke-width="1.2"/>
+      <circle cx="370" cy="90" r="5" fill="#FF2D78" opacity="0.9"/>
+      <circle class="ping2" cx="420" cy="150" r="8" fill="none" stroke="#9B5CF6" stroke-width="1.2"/>
+      <circle cx="420" cy="150" r="5" fill="#9B5CF6" opacity="0.9"/>
+      <circle class="ping3" cx="360" cy="195" r="8" fill="none" stroke="#00C896" stroke-width="1.2"/>
+      <circle cx="360" cy="195" r="5" fill="#00C896" opacity="0.9"/>
+
+      <!-- Connecting dashes right -->
+      <line class="dm" x1="300" y1="90" x2="362" y2="90" stroke="#FF2D78" stroke-width="0.8" opacity="0.5"/>
+      <line class="dm" x1="300" y1="150" x2="412" y2="150" stroke="#9B5CF6" stroke-width="0.8" opacity="0.5"/>
+      <line class="dm" x1="300" y1="195" x2="352" y2="195" stroke="#00C896" stroke-width="0.8" opacity="0.5"/>
+
+      <!-- Stat boxes right -->
+      <rect x="300" y="72" width="56" height="36" rx="6" fill="#1a0026" stroke="#FF2D78" stroke-width="0.8"/>
+      <text font-family="Arial Black,Arial" font-size="13" font-weight="900" fill="#FF2D78" x="328" y="91" text-anchor="middle">KPI</text>
+      <text font-family="Arial,sans-serif" font-size="7" fill="#ffffff" x="328" y="102" text-anchor="middle" opacity="0.5">analysis</text>
+
+      <rect x="300" y="132" width="68" height="36" rx="6" fill="#1a0026" stroke="#9B5CF6" stroke-width="0.8"/>
+      <text font-family="Arial Black,Arial" font-size="13" font-weight="900" fill="#9B5CF6" x="334" y="151" text-anchor="middle">DATA</text>
+      <text font-family="Arial,sans-serif" font-size="7" fill="#ffffff" x="334" y="162" text-anchor="middle" opacity="0.5">roadmap</text>
+
+      <rect x="300" y="177" width="56" height="36" rx="6" fill="#1a0026" stroke="#00C896" stroke-width="0.8"/>
+      <text font-family="Arial Black,Arial" font-size="10" font-weight="900" fill="#00C896" x="328" y="195" text-anchor="middle">GOALS</text>
+      <text font-family="Arial,sans-serif" font-size="7" fill="#ffffff" x="328" y="207" text-anchor="middle" opacity="0.5">defined</text>
+
+      <!-- Step badge -->
+      <rect x="16" y="16" width="44" height="28" rx="6" fill="#9B5CF6"/>
+      <text font-family="Arial Black,Arial" font-size="11" font-weight="900" fill="#ffffff" x="38" y="34" text-anchor="middle">01</text>
+
+      <!-- Label -->
+      <text font-family="Arial Black,Arial" font-size="11" font-weight="900" fill="#ffffff" x="68" y="34" opacity="0.9" letter-spacing="1">DISCOVERY &amp; STRATEGY</text>
+    </svg>

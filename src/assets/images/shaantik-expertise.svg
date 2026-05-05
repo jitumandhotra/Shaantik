@@ -1,0 +1,134 @@
+<svg width="520" height="660" viewBox="0 0 520 660" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="frame">
+      <rect x="0" y="0" width="520" height="660"/>
+    </clipPath>
+    <style>
+      @keyframes orbit1 { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      @keyframes orbit2 { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
+      @keyframes pulse  { 0%,100%{opacity:.55} 50%{opacity:1} }
+      @keyframes dash   { to{stroke-dashoffset:-24} }
+      .ring1{animation:orbit1 18s linear infinite;transform-origin:260px 330px}
+      .ring2{animation:orbit2 24s linear infinite;transform-origin:260px 330px}
+      .pulse1{animation:pulse 2.8s ease-in-out infinite}
+      .pulse2{animation:pulse 3.4s ease-in-out infinite 0.6s}
+      .pulse3{animation:pulse 2.2s ease-in-out infinite 1.2s}
+      .pulse4{animation:pulse 3.8s ease-in-out infinite 0.3s}
+      .dline{animation:dash 1.8s linear infinite;stroke-dasharray:4 4}
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+
+    <!-- Background -->
+    <rect x="0" y="0" width="520" height="660" rx="0" fill="#0d0d0d"/>
+
+    <!-- Dot grid -->
+    <g fill="#ffffff" opacity="0.045">
+      <circle cx="40" cy="20" r="1.2"/><circle cx="80" cy="20" r="1.2"/><circle cx="120" cy="20" r="1.2"/><circle cx="160" cy="20" r="1.2"/><circle cx="200" cy="20" r="1.2"/><circle cx="240" cy="20" r="1.2"/><circle cx="280" cy="20" r="1.2"/><circle cx="320" cy="20" r="1.2"/><circle cx="360" cy="20" r="1.2"/><circle cx="400" cy="20" r="1.2"/><circle cx="440" cy="20" r="1.2"/><circle cx="480" cy="20" r="1.2"/>
+      <circle cx="40" cy="60" r="1.2"/><circle cx="80" cy="60" r="1.2"/><circle cx="120" cy="60" r="1.2"/><circle cx="160" cy="60" r="1.2"/><circle cx="200" cy="60" r="1.2"/><circle cx="240" cy="60" r="1.2"/><circle cx="280" cy="60" r="1.2"/><circle cx="320" cy="60" r="1.2"/><circle cx="360" cy="60" r="1.2"/><circle cx="400" cy="60" r="1.2"/><circle cx="440" cy="60" r="1.2"/><circle cx="480" cy="60" r="1.2"/>
+      <circle cx="40" cy="100" r="1.2"/><circle cx="80" cy="100" r="1.2"/><circle cx="120" cy="100" r="1.2"/><circle cx="160" cy="100" r="1.2"/><circle cx="200" cy="100" r="1.2"/><circle cx="240" cy="100" r="1.2"/><circle cx="280" cy="100" r="1.2"/><circle cx="320" cy="100" r="1.2"/><circle cx="360" cy="100" r="1.2"/><circle cx="400" cy="100" r="1.2"/><circle cx="440" cy="100" r="1.2"/><circle cx="480" cy="100" r="1.2"/>
+      <circle cx="40" cy="140" r="1.2"/><circle cx="80" cy="140" r="1.2"/><circle cx="120" cy="140" r="1.2"/><circle cx="160" cy="140" r="1.2"/><circle cx="200" cy="140" r="1.2"/><circle cx="240" cy="140" r="1.2"/><circle cx="280" cy="140" r="1.2"/><circle cx="320" cy="140" r="1.2"/><circle cx="360" cy="140" r="1.2"/><circle cx="400" cy="140" r="1.2"/><circle cx="440" cy="140" r="1.2"/><circle cx="480" cy="140" r="1.2"/>
+      <circle cx="40" cy="180" r="1.2"/><circle cx="80" cy="180" r="1.2"/><circle cx="120" cy="180" r="1.2"/><circle cx="160" cy="180" r="1.2"/><circle cx="200" cy="180" r="1.2"/><circle cx="240" cy="180" r="1.2"/><circle cx="280" cy="180" r="1.2"/><circle cx="320" cy="180" r="1.2"/><circle cx="360" cy="180" r="1.2"/><circle cx="400" cy="180" r="1.2"/><circle cx="440" cy="180" r="1.2"/><circle cx="480" cy="180" r="1.2"/>
+      <circle cx="40" cy="220" r="1.2"/><circle cx="80" cy="220" r="1.2"/><circle cx="120" cy="220" r="1.2"/><circle cx="160" cy="220" r="1.2"/><circle cx="200" cy="220" r="1.2"/><circle cx="240" cy="220" r="1.2"/><circle cx="280" cy="220" r="1.2"/><circle cx="320" cy="220" r="1.2"/><circle cx="360" cy="220" r="1.2"/><circle cx="400" cy="220" r="1.2"/><circle cx="440" cy="220" r="1.2"/><circle cx="480" cy="220" r="1.2"/>
+      <circle cx="40" cy="260" r="1.2"/><circle cx="80" cy="260" r="1.2"/><circle cx="120" cy="260" r="1.2"/><circle cx="160" cy="260" r="1.2"/><circle cx="200" cy="260" r="1.2"/><circle cx="240" cy="260" r="1.2"/><circle cx="280" cy="260" r="1.2"/><circle cx="320" cy="260" r="1.2"/><circle cx="360" cy="260" r="1.2"/><circle cx="400" cy="260" r="1.2"/><circle cx="440" cy="260" r="1.2"/><circle cx="480" cy="260" r="1.2"/>
+      <circle cx="40" cy="300" r="1.2"/><circle cx="80" cy="300" r="1.2"/><circle cx="120" cy="300" r="1.2"/><circle cx="160" cy="300" r="1.2"/><circle cx="200" cy="300" r="1.2"/><circle cx="240" cy="300" r="1.2"/><circle cx="280" cy="300" r="1.2"/><circle cx="320" cy="300" r="1.2"/><circle cx="360" cy="300" r="1.2"/><circle cx="400" cy="300" r="1.2"/><circle cx="440" cy="300" r="1.2"/><circle cx="480" cy="300" r="1.2"/>
+      <circle cx="40" cy="340" r="1.2"/><circle cx="80" cy="340" r="1.2"/><circle cx="120" cy="340" r="1.2"/><circle cx="160" cy="340" r="1.2"/><circle cx="200" cy="340" r="1.2"/><circle cx="240" cy="340" r="1.2"/><circle cx="280" cy="340" r="1.2"/><circle cx="320" cy="340" r="1.2"/><circle cx="360" cy="340" r="1.2"/><circle cx="400" cy="340" r="1.2"/><circle cx="440" cy="340" r="1.2"/><circle cx="480" cy="340" r="1.2"/>
+      <circle cx="40" cy="380" r="1.2"/><circle cx="80" cy="380" r="1.2"/><circle cx="120" cy="380" r="1.2"/><circle cx="160" cy="380" r="1.2"/><circle cx="200" cy="380" r="1.2"/><circle cx="240" cy="380" r="1.2"/><circle cx="280" cy="380" r="1.2"/><circle cx="320" cy="380" r="1.2"/><circle cx="360" cy="380" r="1.2"/><circle cx="400" cy="380" r="1.2"/><circle cx="440" cy="380" r="1.2"/><circle cx="480" cy="380" r="1.2"/>
+      <circle cx="40" cy="420" r="1.2"/><circle cx="80" cy="420" r="1.2"/><circle cx="120" cy="420" r="1.2"/><circle cx="160" cy="420" r="1.2"/><circle cx="200" cy="420" r="1.2"/><circle cx="240" cy="420" r="1.2"/><circle cx="280" cy="420" r="1.2"/><circle cx="320" cy="420" r="1.2"/><circle cx="360" cy="420" r="1.2"/><circle cx="400" cy="420" r="1.2"/><circle cx="440" cy="420" r="1.2"/><circle cx="480" cy="420" r="1.2"/>
+      <circle cx="40" cy="460" r="1.2"/><circle cx="80" cy="460" r="1.2"/><circle cx="120" cy="460" r="1.2"/><circle cx="160" cy="460" r="1.2"/><circle cx="200" cy="460" r="1.2"/><circle cx="240" cy="460" r="1.2"/><circle cx="280" cy="460" r="1.2"/><circle cx="320" cy="460" r="1.2"/><circle cx="360" cy="460" r="1.2"/><circle cx="400" cy="460" r="1.2"/><circle cx="440" cy="460" r="1.2"/><circle cx="480" cy="460" r="1.2"/>
+      <circle cx="40" cy="500" r="1.2"/><circle cx="80" cy="500" r="1.2"/><circle cx="120" cy="500" r="1.2"/><circle cx="160" cy="500" r="1.2"/><circle cx="200" cy="500" r="1.2"/><circle cx="240" cy="500" r="1.2"/><circle cx="280" cy="500" r="1.2"/><circle cx="320" cy="500" r="1.2"/><circle cx="360" cy="500" r="1.2"/><circle cx="400" cy="500" r="1.2"/><circle cx="440" cy="500" r="1.2"/><circle cx="480" cy="500" r="1.2"/>
+      <circle cx="40" cy="540" r="1.2"/><circle cx="80" cy="540" r="1.2"/><circle cx="120" cy="540" r="1.2"/><circle cx="160" cy="540" r="1.2"/><circle cx="200" cy="540" r="1.2"/><circle cx="240" cy="540" r="1.2"/><circle cx="280" cy="540" r="1.2"/><circle cx="320" cy="540" r="1.2"/><circle cx="360" cy="540" r="1.2"/><circle cx="400" cy="540" r="1.2"/><circle cx="440" cy="540" r="1.2"/><circle cx="480" cy="540" r="1.2"/>
+      <circle cx="40" cy="580" r="1.2"/><circle cx="80" cy="580" r="1.2"/><circle cx="120" cy="580" r="1.2"/><circle cx="160" cy="580" r="1.2"/><circle cx="200" cy="580" r="1.2"/><circle cx="240" cy="580" r="1.2"/><circle cx="280" cy="580" r="1.2"/><circle cx="320" cy="580" r="1.2"/><circle cx="360" cy="580" r="1.2"/><circle cx="400" cy="580" r="1.2"/><circle cx="440" cy="580" r="1.2"/><circle cx="480" cy="580" r="1.2"/>
+      <circle cx="40" cy="620" r="1.2"/><circle cx="80" cy="620" r="1.2"/><circle cx="120" cy="620" r="1.2"/><circle cx="160" cy="620" r="1.2"/><circle cx="200" cy="620" r="1.2"/><circle cx="240" cy="620" r="1.2"/><circle cx="280" cy="620" r="1.2"/><circle cx="320" cy="620" r="1.2"/><circle cx="360" cy="620" r="1.2"/><circle cx="400" cy="620" r="1.2"/><circle cx="440" cy="620" r="1.2"/><circle cx="480" cy="620" r="1.2"/>
+      <circle cx="40" cy="650" r="1.2"/><circle cx="80" cy="650" r="1.2"/><circle cx="120" cy="650" r="1.2"/><circle cx="160" cy="650" r="1.2"/><circle cx="200" cy="650" r="1.2"/><circle cx="240" cy="650" r="1.2"/><circle cx="280" cy="650" r="1.2"/><circle cx="320" cy="650" r="1.2"/><circle cx="360" cy="650" r="1.2"/><circle cx="400" cy="650" r="1.2"/><circle cx="440" cy="650" r="1.2"/><circle cx="480" cy="650" r="1.2"/>
+    </g>
+
+    <!-- Orbit rings centered at 260,330 -->
+    <g class="ring1">
+      <ellipse cx="260" cy="330" rx="170" ry="170" fill="none" stroke="#FF2D78" stroke-width="0.6" opacity="0.18" stroke-dasharray="6 10"/>
+    </g>
+    <g class="ring2">
+      <ellipse cx="260" cy="330" rx="120" ry="120" fill="none" stroke="#7C3AFF" stroke-width="0.6" opacity="0.22" stroke-dasharray="3 8"/>
+    </g>
+    <ellipse cx="260" cy="330" rx="220" ry="220" fill="none" stroke="#ffffff" stroke-width="0.4" opacity="0.06"/>
+
+    <!-- Connecting dashed lines from center to nodes -->
+    <line class="dline" x1="260" y1="330" x2="120" y2="180" stroke="#FF2D78" stroke-width="0.8" opacity="0.45"/>
+    <line class="dline" x1="260" y1="330" x2="400" y2="180" stroke="#FF7A1A" stroke-width="0.8" opacity="0.4"/>
+    <line class="dline" x1="260" y1="330" x2="100" y2="455" stroke="#00C896" stroke-width="0.8" opacity="0.4"/>
+    <line class="dline" x1="260" y1="330" x2="420" y2="460" stroke="#9B5CF6" stroke-width="0.8" opacity="0.4"/>
+
+    <!-- CENTER NODE -->
+    <circle cx="260" cy="330" r="56" fill="#1a1a1a" stroke="#FF2D78" stroke-width="1.5" opacity="0.95"/>
+    <circle cx="260" cy="330" r="48" fill="#111" stroke="#FF2D78" stroke-width="0.5" opacity="0.4"/>
+    <path d="M242,320 Q238,308 246,304 Q254,300 260,306 Q266,300 274,304 Q282,308 278,320 Q282,328 276,334 Q268,340 260,336 Q252,340 244,334 Q238,328 242,320Z" fill="none" stroke="#FF2D78" stroke-width="1.4" opacity="0.9"/>
+    <line x1="260" y1="306" x2="260" y2="336" stroke="#FF2D78" stroke-width="1" opacity="0.6"/>
+    <path d="M244,322 Q252,318 260,322 Q268,318 276,322" fill="none" stroke="#FF2D78" stroke-width="1" opacity="0.6"/>
+    <circle cx="250" cy="315" r="2" fill="#FF2D78" opacity="0.8"/>
+    <circle cx="270" cy="315" r="2" fill="#FF2D78" opacity="0.8"/>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" font-weight="700" fill="#FF2D78" text-anchor="middle" x="260" y="354" letter-spacing="2" opacity="0.9">STRATEGY</text>
+
+    <!-- NODE 1 — Strategic Thinking (top left, pink) -->
+    <g class="pulse1">
+      <rect x="70" y="132" width="102" height="92" rx="12" fill="#1c1118" stroke="#FF2D78" stroke-width="1.2"/>
+      <circle cx="121" cy="160" r="12" fill="none" stroke="#FF2D78" stroke-width="1.2"/>
+      <path d="M115,166 Q115,172 121,174 Q127,172 127,166" fill="none" stroke="#FF2D78" stroke-width="1.2"/>
+      <line x1="121" y1="174" x2="121" y2="179" stroke="#FF2D78" stroke-width="1" opacity="0.6"/>
+      <line x1="118" y1="177" x2="124" y2="177" stroke="#FF2D78" stroke-width="0.8" opacity="0.5"/>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" font-weight="700" fill="#FF2D78" text-anchor="middle" x="121" y="196" letter-spacing="1">STRATEGIC</text>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="7" fill="#FF2D78" text-anchor="middle" x="121" y="208" opacity="0.6">THINKING</text>
+    </g>
+
+    <!-- NODE 2 — Rapid Execution (top right, orange) -->
+    <g class="pulse2">
+      <rect x="348" y="132" width="102" height="92" rx="12" fill="#1c1408" stroke="#FF7A1A" stroke-width="1.2"/>
+      <polygon points="392,148 384,166 390,166 384,186 400,164 394,164 401,148" fill="none" stroke="#FF7A1A" stroke-width="1.3"/>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" font-weight="700" fill="#FF7A1A" text-anchor="middle" x="399" y="196" letter-spacing="1">RAPID</text>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="7" fill="#FF7A1A" text-anchor="middle" x="399" y="208" opacity="0.6">EXECUTION</text>
+    </g>
+
+    <!-- NODE 3 — Scalable Solutions (bottom left, green) -->
+    <g class="pulse3">
+      <rect x="48" y="408" width="106" height="92" rx="12" fill="#0e1c16" stroke="#00C896" stroke-width="1.2"/>
+      <text font-family="'Courier New',monospace" font-size="20" fill="#00C896" text-anchor="middle" x="101" y="455" opacity="0.9">&lt;/&gt;</text>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" font-weight="700" fill="#00C896" text-anchor="middle" x="101" y="474" letter-spacing="1">SCALABLE</text>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="7" fill="#00C896" text-anchor="middle" x="101" y="487" opacity="0.6">SOLUTIONS</text>
+    </g>
+
+    <!-- NODE 4 — Dedicated Support (bottom right, purple) -->
+    <g class="pulse4">
+      <rect x="368" y="414" width="106" height="92" rx="12" fill="#160e24" stroke="#9B5CF6" stroke-width="1.2"/>
+      <path d="M388,440 Q393,434 399,438 Q403,434 409,438 L415,446 Q409,452 403,448 Q399,452 393,448 Z" fill="none" stroke="#9B5CF6" stroke-width="1.3"/>
+      <path d="M380,452 Q388,456 396,452" fill="none" stroke="#9B5CF6" stroke-width="1" opacity="0.5"/>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" font-weight="700" fill="#9B5CF6" text-anchor="middle" x="421" y="474" letter-spacing="1">DEDICATED</text>
+      <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="7" fill="#9B5CF6" text-anchor="middle" x="421" y="487" opacity="0.6">SUPPORT</text>
+    </g>
+
+    <!-- Decorative code lines -->
+    <text font-family="'Courier New',monospace" font-size="10" fill="#ffffff" opacity="0.06" x="30" y="36">const brand = new Shaantik();</text>
+    <text font-family="'Courier New',monospace" font-size="10" fill="#FF2D78" opacity="0.1" x="30" y="590">strategy.execute();</text>
+    <text font-family="'Courier New',monospace" font-size="10" fill="#00C896" opacity="0.09" x="290" y="590">scale(true);</text>
+    <text font-family="'Courier New',monospace" font-size="10" fill="#9B5CF6" opacity="0.09" x="30" y="610">support.init(24/7);</text>
+
+    <!-- Metric bars -->
+    <rect x="40" y="552" width="440" height="4" rx="2" fill="#1e1e1e"/>
+    <rect x="40" y="552" width="308" height="4" rx="2" fill="#FF2D78" opacity="0.7"/>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#ffffff" opacity="0.3" x="40" y="568">Project velocity</text>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#FF2D78" opacity="0.6" x="355" y="568">70%</text>
+
+    <rect x="40" y="578" width="440" height="4" rx="2" fill="#1e1e1e"/>
+    <rect x="40" y="578" width="388" height="4" rx="2" fill="#00C896" opacity="0.6"/>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#ffffff" opacity="0.3" x="40" y="594">Client satisfaction</text>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#00C896" opacity="0.6" x="440" y="594">88%</text>
+
+    <rect x="40" y="604" width="440" height="4" rx="2" fill="#1e1e1e"/>
+    <rect x="40" y="604" width="420" height="4" rx="2" fill="#9B5CF6" opacity="0.6"/>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#ffffff" opacity="0.3" x="40" y="620">Brand impact</text>
+    <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="9" fill="#9B5CF6" opacity="0.6" x="466" y="620">95%</text>
+
+    <!-- Border glow -->
+    <rect x="0" y="0" width="520" height="660" fill="none" stroke="#FF2D78" stroke-width="1" opacity="0.15"/>
+
+  </g>
+</svg>

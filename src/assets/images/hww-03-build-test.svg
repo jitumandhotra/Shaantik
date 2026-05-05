@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <style>
+          @keyframes typeCode { 0%{width:0} 100%{width:160px} }
+          @keyframes blink2 { 0%,100%{opacity:1} 50%{opacity:0} }
+          @keyframes passCheck { 0%{opacity:0;transform:scale(0)} 20%{opacity:1;transform:scale(1.2)} 100%{opacity:1;transform:scale(1)} }
+          .bc{animation:blink2 1s step-end infinite}
+          .pc1{animation:passCheck 0.4s ease forwards 1s}
+          .pc2{animation:passCheck 0.4s ease forwards 2s}
+          .pc3{animation:passCheck 0.4s ease forwards 3s}
+          .pc4{animation:passCheck 0.4s ease forwards 3.5s;opacity:0}
+          @keyframes progressGrow { 0%{width:0} 100%{width:140px} }
+          .pg{animation:progressGrow 4s ease-out infinite}
+        </style>
+      </defs>
+
+      <rect width="240" height="200" fill="#071a12"/>
+      <!-- Ambient glow -->
+      <ellipse cx="120" cy="100" rx="110" ry="90" fill="#00C896" opacity="0.05"/>
+
+      <!-- Terminal window -->
+      <rect x="12" y="12" width="216" height="170" rx="8" fill="#0d2016" stroke="#00C896" stroke-width="1" opacity="0.8"/>
+      <!-- Terminal top bar -->
+      <rect x="12" y="12" width="216" height="22" rx="8" fill="#0a1a10"/>
+      <rect x="12" y="26" width="216" height="8" fill="#0a1a10"/>
+      <circle cx="25" cy="23" r="4" fill="#FF5F57" opacity="0.8"/>
+      <circle cx="37" cy="23" r="4" fill="#FEBC2E" opacity="0.8"/>
+      <circle cx="49" cy="23" r="4" fill="#28C840" opacity="0.8"/>
+      <text font-family="Courier New,monospace" font-size="7" fill="#00C896" x="120" y="27" text-anchor="middle" opacity="0.5">build.sh</text>
+
+      <!-- Code lines -->
+      <text font-family="Courier New,monospace" font-size="8" fill="#9B5CF6" x="20" y="52">$ npm run build</text>
+      <text font-family="Courier New,monospace" font-size="7" fill="#00C896" x="20" y="66">✓ Compiled successfully</text>
+      <text font-family="Courier New,monospace" font-size="7" fill="#ffffff" x="20" y="78" opacity="0.5">  → 42 modules bundled</text>
+      <text font-family="Courier New,monospace" font-size="8" fill="#9B5CF6" x="20" y="94">$ npm run test</text>
+
+      <!-- Test results with animated checks -->
+      <text font-family="Courier New,monospace" font-size="7" fill="#ffffff" x="28" y="108" opacity="0.6">Auth module</text>
+      <g class="pc1"><text font-family="Courier New,monospace" font-size="8" fill="#00C896" x="150" y="108">PASS</text></g>
+
+      <text font-family="Courier New,monospace" font-size="7" fill="#ffffff" x="28" y="120" opacity="0.6">UI components</text>
+      <g class="pc2"><text font-family="Courier New,monospace" font-size="8" fill="#00C896" x="150" y="120">PASS</text></g>
+
+      <text font-family="Courier New,monospace" font-size="7" fill="#ffffff" x="28" y="132" opacity="0.6">API endpoints</text>
+      <g class="pc3"><text font-family="Courier New,monospace" font-size="8" fill="#00C896" x="150" y="132">PASS</text></g>
+
+      <text font-family="Courier New,monospace" font-size="7" fill="#ffffff" x="28" y="144" opacity="0.6">Performance</text>
+      <g class="pc4"><text font-family="Courier New,monospace" font-size="8" fill="#00C896" x="150" y="144">PASS</text></g>
+
+      <!-- Progress bar -->
+      <rect x="20" y="154" width="140" height="6" rx="3" fill="#0a1a10"/>
+      <rect class="pg" x="20" y="154" height="6" rx="3" fill="#00C896"/>
+      <text font-family="Courier New,monospace" font-size="7" fill="#00C896" x="168" y="160" opacity="0.8">100%</text>
+
+      <!-- Blinking cursor -->
+      <text font-family="Courier New,monospace" font-size="8" fill="#00C896" x="20" y="173">$ <tspan class="bc">|</tspan></text>
+
+      <!-- Step badge -->
+      <rect x="10" y="10" width="0" height="0" fill="none"/>
+      <rect x="188" y="14" width="34" height="22" rx="5" fill="#00C896"/>
+      <text font-family="Arial Black,Arial" font-size="10" font-weight="900" fill="#0a0a0a" x="205" y="29" text-anchor="middle">03</text>
+    </svg>

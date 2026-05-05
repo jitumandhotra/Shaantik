@@ -1,0 +1,36 @@
+<svg width="200" height="160" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+      @keyframes spinr { from{transform:rotate(0deg)} to{transform:rotate(-360deg)} }
+      .ring1{animation:spin 12s linear infinite;transform-origin:100px 75px}
+      .ring2{animation:spinr 9s linear infinite;transform-origin:100px 75px}
+    </style>
+  </defs>
+  <rect width="200" height="160" fill="#0d1a2e"/>
+  <!-- Outer ring -->
+  <g class="ring1">
+    <circle cx="100" cy="75" r="55" fill="none" stroke="#FF2D78" stroke-width="0.8" stroke-dasharray="5 8" opacity="0.4"/>
+    <circle cx="100" cy="20" r="4" fill="#FF2D78" opacity="0.8"/>
+  </g>
+  <!-- Mid ring -->
+  <g class="ring2">
+    <circle cx="100" cy="75" r="38" fill="none" stroke="#FF7A1A" stroke-width="0.8" stroke-dasharray="3 6" opacity="0.4"/>
+    <circle cx="138" cy="75" r="3.5" fill="#FF7A1A" opacity="0.8"/>
+  </g>
+  <!-- Center brand mark -->
+  <circle cx="100" cy="75" r="22" fill="#1a0533" stroke="#9B5CF6" stroke-width="1.5"/>
+  <!-- H letter mark -->
+  <line x1="91" y1="64" x2="91" y2="86" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="109" y1="64" x2="109" y2="86" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="91" y1="75" x2="109" y2="75" stroke="#FF2D78" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Color palette dots -->
+  <circle cx="30" cy="130" r="8" fill="#FF2D78"/>
+  <circle cx="52" cy="130" r="8" fill="#FF7A1A"/>
+  <circle cx="74" cy="130" r="8" fill="#FFD700"/>
+  <circle cx="96" cy="130" r="8" fill="#00C896"/>
+  <circle cx="118" cy="130" r="8" fill="#9B5CF6"/>
+  <circle cx="140" cy="130" r="8" fill="#3B8BD4"/>
+  <!-- Label -->
+  <text font-family="'Helvetica Neue',Arial,sans-serif" font-size="8" fill="#ffffff" opacity="0.35" x="10" y="152" letter-spacing="1">BRAND STRATEGY</text>
+</svg>
