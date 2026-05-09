@@ -10,6 +10,7 @@ import Services from "@/pages/Services";
 import Projects from "@/pages/Projects";
 import Blog     from "@/pages/Blog";
 import Pricing  from "@/pages/Pricing";
+import NotFound from "@/pages/NotFound";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/projects" component={Projects} />
         <Route path="/blog"     component={Blog}     />
         <Route path="/pricing"  component={Pricing}  />
+        <Route component={NotFound} />
       </Switch>
       <Footer />
       <Toaster />

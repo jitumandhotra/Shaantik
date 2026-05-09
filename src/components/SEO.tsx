@@ -4,7 +4,7 @@ import { useLocation } from "wouter";
 const SITE_URL = "https://shaantik.com";
 const DEFAULT_IMAGE = `${SITE_URL}/og.png`;
 
-const pages: Record<string, { title: string; description: string }> = {
+const pages: Record<string, { title: string; description: string; robots?: string }> = {
   "/": {
     title: "Shaantik | Creative Digital Agency",
     description:
@@ -42,6 +42,12 @@ const pages: Record<string, { title: string; description: string }> = {
   },
 };
 
+const notFoundPage = {
+  title: "404 Page Not Found | Shaantik",
+  description: "The page you requested could not be found on Shaantik.",
+  robots: "noindex, follow",
+};
+
 const setMeta = (selector: string, attribute: "content" | "href", value: string) => {
   const element = document.head.querySelector(selector);
   if (element) {
@@ -54,7 +60,7 @@ export default function SEO() {
 
   useEffect(() => {
     const path = location.split("?")[0] || "/";
-    const page = pages[path] ?? pages["/"];
+    const page = pages[path] ?? notFoundPage;
     const canonical = `${SITE_URL}${path === "/" ? "/" : path}`;
 
     document.title = page.title;
@@ -67,6 +73,8 @@ export default function SEO() {
     setMeta('meta[name="twitter:title"]', "content", page.title);
     setMeta('meta[name="twitter:description"]', "content", page.description);
     setMeta('meta[name="twitter:image"]', "content", DEFAULT_IMAGE);
+    setMeta('meta[name="robots"]', "content", page.robots ?? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    setMeta('meta[name="googlebot"]', "content", page.robots ?? "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     setMeta('link[rel="canonical"]', "href", canonical);
   }, [location]);
 
