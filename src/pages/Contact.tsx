@@ -13,6 +13,9 @@ import { useToast } from "@/hooks/use-toast";
 
 import hqImage from "@/assets/images/shaantik-expertise.svg";
 
+const CONTACT_ENDPOINT =
+  import.meta.env.VITE_NEXA_CORE_CONTACT_URL || "/api/contact-form";
+
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName:  z.string().min(2, "Last name is required"),
@@ -65,14 +68,37 @@ export default function Contact() {
     defaultValues: { consent: false },
   });
 
-  const onSubmit = async (_data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
-    await new Promise((r) => setTimeout(r, 900));
-    setSubmitStatus("success");
-    form.reset();
-    toast({ title: "Message sent!", description: "We'll be in touch within 24 hours." });
-    setIsSubmitting(false);
+
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || result.status === false) {
+        throw new Error(result.message || "Unable to send your message right now.");
+      }
+
+      setSubmitStatus("success");
+      form.reset();
+      toast({ title: "Message sent!", description: "We'll be in touch within 24 hours." });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Please check your network and try again.";
+
+      setSubmitStatus("error");
+      toast({ title: "Message not sent", description: message, variant: "destructive" });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -135,7 +161,7 @@ export default function Contact() {
                 title: "Phone",
                 line1: "+1 (800) 123-4567",
                 line2: "Mon–Fri 9am–6pm EST",
-                action: { label: "Call Now", href: "tel:+18001234567", variant: "primary" },
+                action: { label: "Call Now", href: "tel:+917986306280", variant: "primary" },
               },
               {
                 icon: <Mail className="w-8 h-8 text-secondary" />,
@@ -143,7 +169,7 @@ export default function Contact() {
                 title: "Email",
                 line1: "hello@shaantik.com",
                 line2: "Online support 24/7",
-                action: { label: "Email Us", href: "mailto:hello@shaantik.com", variant: "secondary" },
+                action: { label: "Email Us", href: "mailto:shaantik01@gmail.com", variant: "secondary" },
               },
               {
                 icon: <MapPin className="w-8 h-8 text-accent" />,
