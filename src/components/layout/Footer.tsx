@@ -71,11 +71,11 @@ export default function Footer() {
                 </span>
                 +1 (999) 345 2577
               </a>
-              <a href="mailto:info@shaantik.com" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
+              <a href="mailto:shaantik01@gmail.com" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all mt-0.5">
                   <Mail className="w-3 h-3" />
                 </span>
-                info@shaantik.com
+                shaantik01@gmail.com
               </a>
               <div className="flex items-start gap-3 text-white/50 text-sm">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">

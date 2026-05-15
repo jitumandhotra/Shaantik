@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +15,8 @@ import hqImage from "@/assets/images/shaantik-expertise.svg";
 
 const CONTACT_ENDPOINT =
   import.meta.env.VITE_NEXA_CORE_CONTACT_URL || "/api/contact-form";
+const CONTACT_EMAIL = "shaantik01@gmail.com";
+const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
@@ -24,6 +26,7 @@ const formSchema = z.object({
   phone:     z.string().optional(),
   service:   z.string().min(1, "Please select a service"),
   budget:    z.string().min(1, "Please select a budget range"),
+  industry:  z.string().min(1, "Please select an industry"),
   message:   z.string().min(20, "Message must be at least 20 characters"),
   consent:   z.boolean().refine((v) => v === true, { message: "You must agree to be contacted" }),
 });
@@ -57,6 +60,143 @@ const faqs = [
   },
 ];
 
+const services = [
+  { value: "web", label: "Website Development" },
+  { value: "app", label: "Mobile App Development" },
+  { value: "marketing", label: "Digital Marketing" },
+  { value: "design", label: "Graphics & Branding" },
+  { value: "full", label: "Full-Service Package" },
+  { value: "other", label: "Other / Not Sure" },
+];
+
+const budgetRanges = [
+  { value: "under5k", label: "Under $5,000" },
+  { value: "5k-15k", label: "$5,000 - $15,000" },
+  { value: "15k-30k", label: "$15,000 - $30,000" },
+  { value: "30k-50k", label: "$30,000 - $50,000" },
+  { value: "50k+", label: "$50,000+" },
+];
+
+const industries = [
+  { value: "arts-entertainment", label: "Arts & Entertainment" },
+  { value: "autos-vehicles", label: "Autos & Vehicles" },
+  { value: "beauty-fitness", label: "Beauty & Fitness" },
+  { value: "books-literature", label: "Books & Literature" },
+  { value: "business-industrial", label: "Business & Industrial" },
+  { value: "computers-electronics", label: "Computers & Electronics" },
+  { value: "finance", label: "Finance" },
+  { value: "food-drink", label: "Food & Drink" },
+  { value: "games", label: "Games" },
+  { value: "health", label: "Health" },
+  { value: "home-garden", label: "Home & Garden" },
+  { value: "internet-telecom", label: "Internet & Telecom" },
+  { value: "jobs-education", label: "Jobs & Education" },
+  { value: "law-government", label: "Law & Government" },
+  { value: "news", label: "News" },
+  { value: "online-communities", label: "Online Communities" },
+  { value: "people-society", label: "People & Society" },
+  { value: "pets-animals", label: "Pets & Animals" },
+  { value: "real-estate", label: "Real Estate" },
+  { value: "reference", label: "Reference" },
+  { value: "science", label: "Science" },
+  { value: "shopping", label: "Shopping" },
+  { value: "sports", label: "Sports" },
+  { value: "travel", label: "Travel" },
+  { value: "other-business", label: "Other Business Activity" },
+];
+
+type SelectOption = {
+  value: string;
+  label: string;
+};
+
+type ThemedSelectProps = {
+  label: string;
+  value?: string;
+  placeholder: string;
+  options: SelectOption[];
+  error?: string;
+  onChange: (value: string) => void;
+};
+
+function ThemedSelect({ label, value, placeholder, options, error, onChange }: ThemedSelectProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const selectedOption = options.find((option) => option.value === value);
+
+  useEffect(() => {
+    const closeOnOutsideClick = (event: MouseEvent) => {
+      if (!wrapperRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", closeOnOutsideClick);
+    return () => document.removeEventListener("mousedown", closeOnOutsideClick);
+  }, []);
+
+  return (
+    <div ref={wrapperRef} className="space-y-2 relative">
+      <label className="text-sm font-black text-white uppercase tracking-widest ml-2 block">{label}</label>
+      <button
+        type="button"
+        onClick={() => setIsOpen((open) => !open)}
+        className={`w-full h-14 rounded-2xl bg-black/40 border ${
+          error ? "border-red-500" : isOpen ? "border-primary" : "border-white/10"
+        } text-left text-white px-4 pr-12 outline-none focus:ring-2 focus:ring-primary transition-all shadow-inner shadow-black/20 relative`}
+        aria-expanded={isOpen}
+      >
+        <span className={selectedOption ? "text-white" : "text-white/65"}>
+          {selectedOption?.label ?? placeholder}
+        </span>
+        <ChevronDown
+          className={`absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.98 }}
+            transition={{ duration: 0.16 }}
+            className="absolute left-0 right-0 top-[calc(100%-2px)] z-50 max-h-72 overflow-y-auto rounded-2xl border border-primary/40 bg-[#140817]/95 p-2 shadow-[0_18px_50px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+          >
+            {options.map((option) => {
+              const isSelected = option.value === value;
+
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => {
+                    onChange(option.value);
+                    setIsOpen(false);
+                  }}
+                  className={`w-full rounded-xl px-4 py-3 text-left text-sm font-bold transition-colors ${
+                    isSelected
+                      ? "bg-primary text-white shadow-[0_0_18px_rgba(var(--primary),0.35)]"
+                      : "text-white/80 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {error && (
+        <span className="text-red-400 text-xs font-bold ml-2 block">{error}</span>
+      )}
+    </div>
+  );
+}
+
 export default function Contact() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting]   = useState(false);
@@ -65,8 +205,11 @@ export default function Contact() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { consent: false },
+    defaultValues: { service: "", budget: "", industry: "", consent: false },
   });
+  const selectedService = form.watch("service");
+  const selectedBudget = form.watch("budget");
+  const selectedIndustry = form.watch("industry");
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
@@ -167,9 +310,9 @@ export default function Contact() {
                 icon: <Mail className="w-8 h-8 text-secondary" />,
                 bg: "bg-secondary/20",
                 title: "Email",
-                line1: "hello@shaantik.com",
+                line1: CONTACT_EMAIL,
                 line2: "Online support 24/7",
-                action: { label: "Email Us", href: "mailto:shaantik01@gmail.com", variant: "secondary" },
+                action: { label: "Email Us", href: GMAIL_COMPOSE_URL, variant: "secondary", external: true },
               },
               {
                 icon: <MapPin className="w-8 h-8 text-accent" />,
@@ -222,7 +365,13 @@ export default function Contact() {
                             : "border border-white/20 bg-transparent text-white hover:bg-white/10"
                         }`}
                       >
-                        <a href={card.action.href}>{card.action.label}</a>
+                        <a
+                          href={card.action.href}
+                          target={card.action.external ? "_blank" : undefined}
+                          rel={card.action.external ? "noreferrer" : undefined}
+                        >
+                          {card.action.label}
+                        </a>
                       </Button>
                     )}
                   </>
@@ -240,7 +389,7 @@ export default function Contact() {
 
             {/* Main Form */}
             <div className="lg:w-2/3">
-              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-8 md:p-12 shadow-2xl relative overflow-visible">
                 <div className="absolute top-0 right-0 w-[50vw] h-[50vh] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
 
                 <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-8 relative z-10">
@@ -327,43 +476,34 @@ export default function Contact() {
 
                   {/* Service + Budget */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-black text-white uppercase tracking-widest ml-2 block">Service Needed *</label>
-                      <select
-                        {...form.register("service")}
-                        className={`w-full h-14 rounded-2xl bg-black/40 border ${form.formState.errors.service ? "border-red-500" : "border-white/10"} text-white px-4 outline-none focus:ring-2 focus:ring-primary appearance-none`}
-                      >
-                        <option value="">Select a service...</option>
-                        <option value="web">Website Development</option>
-                        <option value="app">Mobile App Development</option>
-                        <option value="marketing">Digital Marketing</option>
-                        <option value="design">Graphics & Branding</option>
-                        <option value="full">Full-Service Package</option>
-                        <option value="other">Other / Not Sure</option>
-                      </select>
-                      {form.formState.errors.service && (
-                        <span className="text-red-400 text-xs font-bold ml-2 block">{form.formState.errors.service.message}</span>
-                      )}
-                    </div>
+                    <ThemedSelect
+                      label="Service Needed *"
+                      value={selectedService}
+                      placeholder="Select a service..."
+                      options={services}
+                      error={form.formState.errors.service?.message}
+                      onChange={(value) => form.setValue("service", value, { shouldDirty: true, shouldValidate: true })}
+                    />
 
-                    <div className="space-y-2">
-                      <label className="text-sm font-black text-white uppercase tracking-widest ml-2 block">Budget Range *</label>
-                      <select
-                        {...form.register("budget")}
-                        className={`w-full h-14 rounded-2xl bg-black/40 border ${form.formState.errors.budget ? "border-red-500" : "border-white/10"} text-white px-4 outline-none focus:ring-2 focus:ring-primary appearance-none`}
-                      >
-                        <option value="">Select a range...</option>
-                        <option value="under5k">Under $5,000</option>
-                        <option value="5k-15k">$5,000 – $15,000</option>
-                        <option value="15k-30k">$15,000 – $30,000</option>
-                        <option value="30k-50k">$30,000 – $50,000</option>
-                        <option value="50k+">$50,000+</option>
-                      </select>
-                      {form.formState.errors.budget && (
-                        <span className="text-red-400 text-xs font-bold ml-2 block">{form.formState.errors.budget.message}</span>
-                      )}
-                    </div>
+                    <ThemedSelect
+                      label="Budget Range *"
+                      value={selectedBudget}
+                      placeholder="Select a range..."
+                      options={budgetRanges}
+                      error={form.formState.errors.budget?.message}
+                      onChange={(value) => form.setValue("budget", value, { shouldDirty: true, shouldValidate: true })}
+                    />
                   </div>
+
+                  {/* Industry */}
+                  <ThemedSelect
+                    label="Industry *"
+                    value={selectedIndustry}
+                    placeholder="Select your industry..."
+                    options={industries}
+                    error={form.formState.errors.industry?.message}
+                    onChange={(value) => form.setValue("industry", value, { shouldDirty: true, shouldValidate: true })}
+                  />
 
                   {/* Message */}
                   <div className="space-y-2">
