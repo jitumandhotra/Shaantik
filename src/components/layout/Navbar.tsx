@@ -18,7 +18,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className={`text-lg font-black transition-colors uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ${
+      className={`nav-text-depth text-base font-black transition-colors uppercase tracking-widest ${
         isActive ? "text-primary" : "text-white hover:text-primary"
       }`}
     >
@@ -48,7 +48,7 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Shaantik Logo"
-              className="navbar-logo h-28 md:h-36 object-contain hover:scale-105 transition-transform duration-300"              
+              className="navbar-logo h-28 md:h-36 object-contain"              
             />
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default function Navbar() {
               key={href}
               href={href}
               onClick={() => setMobileOpen(false)}
-              className="text-lg font-black text-white uppercase tracking-widest hover:text-primary transition-colors"
+              className="nav-text-depth text-base font-black text-white uppercase tracking-widest hover:text-primary transition-colors"
             >
               {label}
             </Link>

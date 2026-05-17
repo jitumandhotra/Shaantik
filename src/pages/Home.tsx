@@ -154,27 +154,27 @@ export default function Home() {
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, type: "spring" }}
-            className="mb-4 inline-flex items-center rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-md px-4 py-1.5 text-xs md:text-sm font-bold text-white uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.3)]"
+            transition={{ duration: 0.35 }}
+            className="mb-4 inline-flex items-center rounded-full border-2 border-white/30 bg-white/10 px-4 py-1.5 text-xs md:text-sm font-bold text-white uppercase tracking-widest"
           >
             <Flame className="w-4 h-4 mr-2 text-secondary animate-pulse" />
             Creative Digital Agency
           </motion.div>
 
-          <h1 className="text-5xl md:text-[6rem] font-black text-white leading-[0.85] tracking-tighter uppercase drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent animate-gradient bg-[length:200%_200%] text-glow">Creative</span><br />
-            Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-muted to-primary animate-gradient bg-[length:200%_200%] text-glow">Agency</span>
+          <h1 className="text-5xl md:text-[6rem] font-black text-white leading-[0.85] tracking-tighter uppercase">
+            We Are <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent text-glow">Creative</span><br />
+            Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-muted to-primary text-glow">Agency</span>
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-white/90 font-bold max-w-2xl drop-shadow-lg">
+          <p className="mt-6 text-lg md:text-xl text-white/90 font-bold max-w-2xl">
             We craft high-performance websites, engaging brands, and growth marketing that drives measurable results.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-8 w-full justify-start">
-            <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-black shadow-[0_0_40px_rgba(var(--primary),0.6)] bg-primary hover:bg-primary/80 text-white border-0 transition-all hover:scale-105">
+            <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg font-black bg-primary hover:bg-primary/80 text-white border-0 transition-colors">
               <Link href="/#projects">View Our Projects</Link>
             </Button>
-            <Button size="lg" variant="outline" className="rounded-full h-14 px-8 text-lg font-black border-2 border-white text-white hover:bg-white hover:text-foreground backdrop-blur-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <Button asChild size="lg" variant="outline" className="rounded-full h-14 px-8 text-lg font-black border-2 border-white text-white hover:bg-white hover:text-foreground transition-colors">
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
@@ -182,23 +182,23 @@ export default function Home() {
 
         {/* Scrolling Ticker */}
         <div
-          className="absolute bottom-0 w-full overflow-hidden py-4 border-y-4 border-white/30 z-30 shadow-[0_0_30px_rgba(0,0,0,0.5)] animate-gradient"
+          className="absolute bottom-0 w-full overflow-hidden py-4 border-y-4 border-white/30 z-30 pointer-events-none"
           style={{ backgroundImage: "linear-gradient(to right, #ff0018, #ffa52c, #ffff41, #008018, #0000f9, #86007d, #ff0018)", backgroundSize: "200% auto" }}
         >
           <motion.div
-            className="whitespace-nowrap flex gap-8 text-2xl md:text-3xl font-black text-white uppercase tracking-widest drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]"
+            className="whitespace-nowrap flex gap-8 text-2xl md:text-3xl font-black text-white uppercase tracking-widest"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ ease: "linear", duration: 25, repeat: Infinity }}
           >
             {[...Array(10)].map((_, i) => (
               <span key={i} className="flex items-center">
-                <span className="text-yellow-300 mr-8 drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]">✦</span>
+                <span className="text-yellow-300 mr-8">✦</span>
                 CREATIVE STRATEGY
-                <span className="text-yellow-300 mx-8 drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]">✦</span>
+                <span className="text-yellow-300 mx-8">✦</span>
                 PIXEL-PERFECT DESIGN
-                <span className="text-yellow-300 mx-8 drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]">✦</span>
+                <span className="text-yellow-300 mx-8">✦</span>
                 SCALABLE DEVELOPMENT
-                <span className="text-yellow-300 mx-8 drop-shadow-[0_3px_3px_rgba(0,0,0,0.8)]">✦</span>
+                <span className="text-yellow-300 mx-8">✦</span>
                 RESULTS-DRIVEN MARKETING
               </span>
             ))}
