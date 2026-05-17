@@ -18,7 +18,7 @@ import hqImage from "@/assets/images/shaantik-expertise.svg";
 import logo from "@assets/shaantik_logo.png";
 
 // Social / Work Images
-import imgDigitalConsulting from "@/assets/images/01-digital-consulting 1.png";
+import imgDigitalConsulting from "@/assets/images/01-digital-consulting.svg";
 import imgBrandStrategy from "@/assets/images/02-brand-strategy.svg";
 import imgAppDesign from "@/assets/images/03-app-design.svg";
 import imgWebDevelopment from "@/assets/images/04-web-development.svg";
