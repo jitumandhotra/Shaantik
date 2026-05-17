@@ -8,9 +8,10 @@ import {
   Star, Flame, Handshake,
   Shield, Settings, MapPin, CheckCircle, Instagram, Facebook,
   Twitter, Youtube, Bell, ArrowRight, Smartphone, Megaphone,
-  Palette, Monitor, Code2, Lightbulb, Rocket, Users
+  Palette, Monitor, Code2, Lightbulb, Rocket, Users, Search
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { servicePages } from "@/data/servicePages";
 
 // Asset Imports
 import hqImage from "@/assets/images/shaantik-expertise.svg";
@@ -38,12 +39,24 @@ const social5 = imgMarketingCampaign;
 const social6 = imgProductDesign;
 
 
-const services = [
-  { id: "mobile-app", name: "Mobile Application", desc: "Native & cross-platform apps built for performance, usability, and scalable growth.", icon: Smartphone },
-  { id: "digital-marketing", name: "Digital Marketing", desc: "Data-driven campaigns across SEO, PPC, and social that deliver measurable ROI.", icon: Megaphone },
-  { id: "graphics-design", name: "Graphics Designing", desc: "Bold visual identities and creative assets that make your brand impossible to ignore.", icon: Palette },
-  { id: "web-development", name: "Website Development", desc: "Fast, responsive, and conversion-optimized websites engineered for real results.", icon: Monitor },
-];
+const serviceIconMap = {
+  web: Monitor,
+  app: Smartphone,
+  marketing: Megaphone,
+  seo: Search,
+  design: Palette,
+  devops: Code2,
+  ai: Rocket,
+  salesforce: Users,
+};
+
+const services = servicePages.map((service) => ({
+  id: service.id,
+  slug: service.slug,
+  name: service.title,
+  desc: service.subtitle,
+  icon: serviceIconMap[service.id as keyof typeof serviceIconMap] ?? Monitor,
+}));
 
 const clientReviews = [
   { name: "Sarah K.", title: "Best agency we've worked with!", text: "Shaantik transformed our digital presence completely. Our website traffic tripled within 3 months and conversions are through the roof.", rating: 5, date: "Jan 12, 2025" },
@@ -131,24 +144,27 @@ export default function Home() {
   };
 
   const SERVICE_COLORS: Record<string, string> = {
-    "mobile-app": "rgba(249, 115, 22, 0.35)",
-    "digital-marketing": "rgba(236, 72, 153, 0.35)",
-    "graphics-design": "rgba(132, 204, 22, 0.3)",
-    "web-development": "rgba(99, 102, 241, 0.35)",
+    web: "rgba(99, 102, 241, 0.35)",
+    app: "rgba(249, 115, 22, 0.35)",
+    marketing: "rgba(236, 72, 153, 0.35)",
+    design: "rgba(132, 204, 22, 0.3)",
+    devops: "rgba(56, 189, 248, 0.3)",
+    ai: "rgba(34, 197, 94, 0.28)",
+    salesforce: "rgba(59, 130, 246, 0.3)",
   };
 
   return (
     <div ref={containerRef} className="flex flex-col min-h-screen w-full overflow-hidden bg-background">
 
       {/* ── SECTION 1: HERO ── */}
-      <section className="relative w-full h-[100svh] flex items-center justify-center overflow-hidden">
+      <section className="shaantik-home-hero relative w-full h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="absolute inset-0 z-0 bg-black">
           <video autoPlay loop muted playsInline src="/home-hero.mp4" className="w-full h-full object-cover" />
         </div>
 
         <motion.div
-          className="relative z-20 container mx-auto px-4 flex flex-col items-start text-left justify-end pb-32 h-full"
+          className="shaantik-home-hero-content relative z-20 container mx-auto px-4 flex flex-col items-start text-left justify-end pb-32 h-full"
           style={{ y: yHeroText, opacity: opacityHero }}
         >
           <motion.div
@@ -232,7 +248,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 md:gap-10">
             {services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -246,7 +262,7 @@ export default function Home() {
                   onMouseLeave={() => setHoveredService(null)}
                   className="w-full"
                 >
-                  <Link href="/contact" className="block">
+                  <Link href={`/services/${service.slug}`} className="block">
                     <div className="relative p-8 rounded-3xl border shadow-xl transition-all duration-300 bg-white text-foreground border-black/10 hover:-translate-y-1 group">
                       <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-orange-300 to-pink-400 mix-blend-normal" />
                       <div className="relative">

@@ -64,7 +64,11 @@ const services = [
   { value: "web", label: "Website Development" },
   { value: "app", label: "Mobile App Development" },
   { value: "marketing", label: "Digital Marketing" },
+  { value: "seo", label: "SEO Strategy" },
   { value: "design", label: "Graphics & Branding" },
+  { value: "devops", label: "DevOps & Cloud" },
+  { value: "ai", label: "AI Automation" },
+  { value: "salesforce", label: "Salesforce Consulting" },
   { value: "full", label: "Full-Service Package" },
   { value: "other", label: "Other / Not Sure" },
 ];
@@ -260,7 +264,7 @@ export default function Contact() {
           <motion.h1
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
+            className="mobile-page-hero-title text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
             Contact <span className="text-primary">Shaantik</span>
           </motion.h1>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import logo from "@assets/shaantik_logo.png";
 import { Instagram, Facebook, Twitter, Youtube, Music2, X, ArrowRight, Mail, Phone, MapPin } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { servicePages } from "@/data/servicePages";
 
 export default function Footer() {
   const [comingSoonModal, setComingSoonModal] = useState(false);
@@ -23,10 +24,10 @@ export default function Footer() {
 
       {/* ── CTA BAND ── */}
       <div className="relative border-b border-white/[0.06]">
-        <div className="container mx-auto px-6 lg:px-12 py-14 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
+        <div className="container mx-auto px-6 lg:px-12 py-14 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div className="mx-auto md:mx-0">
             <p className="text-primary font-black uppercase tracking-[0.3em] text-xs mb-3">Ready to grow?</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95]">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] mx-auto md:mx-0">
               Let's Build Something<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Great Together
@@ -43,41 +44,41 @@ export default function Footer() {
       </div>
 
       {/* ── MAIN BODY ── */}
-      <div className="container mx-auto px-6 lg:px-12 pt-16 pb-10">
+      <div className="container mx-auto px-6 pt-12 pb-9 md:pt-16 md:pb-10 lg:px-12">
 
         {/* Logo + 4 columns in one row */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 mb-14">
+        <div className="grid grid-cols-2 gap-x-5 gap-y-7 md:grid-cols-5 md:gap-10 mb-10 md:mb-14">
 
           {/* Logo column */}
-          <div className="flex flex-col gap-5 items-start">
+          <div className="col-span-2 flex flex-col items-center text-center md:col-span-1 md:items-start md:text-left">
             {/* footer-logo: edit size here → h-40 w-auto */}
             <img
               src={logo}
               alt="Shaantik Logo"
-              className="footer-logo h-[200px] w-auto object-contain"              
+              className="footer-logo h-24 w-auto object-contain md:h-[200px]"              
             />
-            <p className="text-white/40 text-xs leading-relaxed">
+            <p className="-mt-3 max-w-[19rem] text-white/50 text-sm leading-relaxed md:mt-0 md:max-w-none md:text-xs">
               Crafting memorable brands, high-performance websites, and growth-driven marketing.
             </p>
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-5">Contact</h4>
-            <div className="flex flex-col gap-4">
-              <a href="tel:+917986306280" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
+          <div className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-center md:col-span-1 md:border-0 md:bg-transparent md:p-0 md:text-left">
+            <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-white/45 md:mb-4 md:text-[10px] md:tracking-[0.34em] md:text-white/35">Contact</h4>
+            <div className="mx-auto grid max-w-[19rem] gap-3 md:mx-0 md:max-w-none">
+              <a href="tel:+917986306280" className="flex items-center gap-3 text-left text-white/60 hover:text-primary transition-colors text-sm group">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all mt-0.5">
                   <Phone className="w-3 h-3" />
                 </span>
                 +91 79863 06280
               </a>
-              <a href="mailto:shaantik01@gmail.com" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
+              <a href="mailto:shaantik01@gmail.com" className="flex items-center gap-3 text-left text-white/60 hover:text-primary transition-colors text-sm group">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all mt-0.5">
                   <Mail className="w-3 h-3" />
                 </span>
                 shaantik01@gmail.com
               </a>
-              <div className="flex items-start gap-3 text-white/50 text-sm">
+              <div className="flex items-center gap-3 text-left text-white/60 text-sm">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-3 h-3" />
                 </span>
@@ -87,9 +88,9 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-5">Navigation</h4>
-            <ul className="flex flex-col gap-3">
+          <div className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.025] p-4 text-center md:col-span-1 md:border-0 md:bg-transparent md:p-0 md:text-left">
+            <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.2em] text-white/45 md:mb-4 md:text-[10px] md:tracking-[0.34em] md:text-white/35">Navigation</h4>
+            <ul className="flex flex-col items-center gap-2.5 md:items-start md:gap-3">
               {[
                 { href: "/services",  label: "Services"  },
                 { href: "/projects",  label: "Projects"  },
@@ -99,9 +100,9 @@ export default function Footer() {
                 { href: "/contact",   label: "Contact"   },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <Link href={href} className="text-white/50 hover:text-primary font-medium text-sm transition-colors flex items-center gap-2 group">
+                  <Link href={href} className="text-white/55 hover:text-primary font-medium text-sm transition-colors flex items-center gap-2 group">
                     <span className="w-0 group-hover:w-2.5 h-px bg-primary transition-all duration-300 shrink-0" />
-                    {label}
+                    <span>{label}</span>
                   </Link>
                 </li>
               ))}
@@ -109,14 +110,14 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-5">Services</h4>
-            <ul className="flex flex-col gap-3">
-              {["Web Development", "Mobile Apps", "Digital Marketing", "Brand Design", "SEO Strategy", "UI/UX Design"].map((s) => (
-                <li key={s}>
-                  <Link href="/services" className="text-white/50 hover:text-primary font-medium text-sm transition-colors flex items-center gap-2 group">
+          <div className="col-span-2 rounded-2xl border border-white/10 bg-white/[0.025] p-4 text-center md:col-span-1 md:border-0 md:bg-transparent md:p-0 md:text-left">
+            <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.2em] text-white/45 md:mb-4 md:text-[10px] md:tracking-[0.34em] md:text-white/35">Services</h4>
+            <ul className="flex flex-col items-center gap-2.5 md:items-start md:gap-3">
+              {servicePages.map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`} className="text-white/55 hover:text-primary font-medium text-sm transition-colors flex items-center gap-2 group">
                     <span className="w-0 group-hover:w-2.5 h-px bg-primary transition-all duration-300 shrink-0" />
-                    {s}
+                    <span>{service.title}</span>
                   </Link>
                 </li>
               ))}
@@ -124,9 +125,9 @@ export default function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-5">Newsletter</h4>
-            <p className="text-white/40 text-sm mb-4 leading-relaxed">
+          <div className="col-span-2 text-center md:col-span-1 md:text-left">
+            <h4 className="mb-3 text-[11px] font-black uppercase tracking-[0.22em] text-white/45 md:mb-4 md:text-[10px] md:tracking-[0.34em] md:text-white/35">Newsletter</h4>
+            <p className="mx-auto max-w-xs text-white/45 text-sm mb-4 leading-relaxed md:mx-0 md:max-w-none">
               Monthly insights on design, dev &amp; growth. No spam.
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-2">
@@ -152,7 +153,7 @@ export default function Footer() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         {/* Bottom bar */}
-        <div className="flex items-center justify-between gap-4 pt-6 text-[11px] text-white/25 font-bold uppercase tracking-widest">
+        <div className="flex flex-col items-center justify-center gap-5 pt-6 text-center text-[11px] text-white/25 font-bold uppercase tracking-widest md:flex-row md:justify-between md:text-left">
 
           {/* Copyright — left */}
           <p className="shrink-0">© {new Date().getFullYear()} Shaantik. All Rights Reserved.</p>
@@ -180,7 +181,7 @@ export default function Footer() {
           </div>
 
           {/* Legal links — right */}
-          <div className="flex items-center gap-6 shrink-0">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 shrink-0 md:gap-6">
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
             <span>Cookie Policy</span>

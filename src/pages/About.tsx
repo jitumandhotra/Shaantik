@@ -119,7 +119,7 @@ export default function About() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
+            className="mobile-page-hero-title text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
             About <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">

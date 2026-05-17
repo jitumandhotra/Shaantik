@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
+import { servicePages } from "@/data/servicePages";
 import {
   Smartphone, Megaphone, Palette, Monitor,
   CheckCircle, ArrowRight, Code2, Globe,
@@ -8,10 +9,11 @@ import {
   Server, ShoppingBag, Layout, Flame, Shield,
   BrainCircuit, Bot, Workflow, CloudCog,
   ChartScatter, TableProperties, DatabaseZap, PlugZap,
-  Sparkles, MessageSquare, ChartNetwork, CloudCheck,
+  Sparkles, MessageSquare, ChartNetwork, CloudCheck, GitBranch,
 } from "lucide-react";
 
 import imgAppDesign         from "@/assets/images/03-app-design.svg";
+import imgDigitalConsulting from "@/assets/images/01-digital-consulting.svg";
 import imgMarketingCampaign from "@/assets/images/05-marketing-campaign.svg";
 import imgBrandStrategy     from "@/assets/images/02-brand-strategy.svg";
 import imgWebDevelopment    from "@/assets/images/04-web-development.svg";
@@ -62,18 +64,36 @@ const services = [
     icon: Megaphone,
     color: "accent",
     title: "Digital Marketing",
-    subtitle: "Data-Driven. ROI-Obsessed.",
-    desc: "We run marketing that actually works — not just pretty dashboards. From performance ads to organic growth strategies, every campaign is built around measurable results.",
+    subtitle: "Paid Growth. Clean Funnels. Clear ROI.",
+    desc: "We run marketing that actually works — not just pretty dashboards. From performance ads to lifecycle campaigns, every campaign is built around measurable results.",
     image: imgMarketingCampaign,
     features: [
       "Google & Meta PPC advertising",
-      "SEO & content strategy",
+      "Campaign strategy and audience planning",
       "Social media management",
       "Email marketing automation",
       "Conversion rate optimization",
       "Monthly analytics & reporting",
     ],
-    tags: ["Google Ads", "Meta Ads", "SEO", "Email", "Analytics", "CRO"],
+    tags: ["Google Ads", "Meta Ads", "Email", "Analytics", "CRO", "Funnels"],
+  },
+  {
+    id: "seo",
+    icon: Search,
+    color: "primary",
+    title: "SEO Strategy",
+    subtitle: "Technical. Content-Led. Built to Compound.",
+    desc: "We improve how search engines discover, understand, and rank your business through technical SEO, content planning, metadata, schema, internal linking, and performance improvements.",
+    image: imgDigitalConsulting,
+    features: [
+      "Technical SEO audits and crawl fixes",
+      "Keyword research and search intent mapping",
+      "On-page optimisation for service pages",
+      "Content clusters and blog briefs",
+      "Schema markup and metadata improvements",
+      "Search Console and ranking reports",
+    ],
+    tags: ["Technical SEO", "Content SEO", "Schema", "Search Console", "Core Web Vitals", "Analytics"],
   },
   {
     id: "design",
@@ -92,6 +112,60 @@ const services = [
       "Pitch decks & presentation design",
     ],
     tags: ["Figma", "Illustrator", "After Effects", "Photoshop", "Brand Strategy"],
+  },
+  {
+    id: "devops",
+    icon: GitBranch,
+    color: "primary",
+    title: "DevOps & Cloud",
+    subtitle: "Reliable. Automated. Built to Scale.",
+    desc: "We set up deployment pipelines, cloud infrastructure, monitoring, and release workflows so your product ships faster and runs with confidence.",
+    image: imgWebDevelopment,
+    features: [
+      "CI/CD pipeline setup",
+      "Cloud deployment on AWS, Vercel, or Cloudflare",
+      "Docker and environment configuration",
+      "Monitoring, logging, and uptime alerts",
+      "Performance and security hardening",
+      "Backup and rollback planning",
+    ],
+    tags: ["CI/CD", "AWS", "Docker", "Vercel", "Cloudflare", "Monitoring"],
+  },
+  {
+    id: "ai",
+    icon: BrainCircuit,
+    color: "accent",
+    title: "AI Automation",
+    subtitle: "Smart Workflows. Human Control.",
+    desc: "We build practical AI assistants, automations, and data workflows that reduce repetitive work and help teams move faster without losing oversight.",
+    image: imgDigitalConsulting,
+    features: [
+      "AI chatbots and internal assistants",
+      "Workflow automation for operations",
+      "Knowledge-base search and document processing",
+      "CRM and tool integrations",
+      "Prompt design and guardrails",
+      "Analytics and reporting automation",
+    ],
+    tags: ["OpenAI", "LangChain", "Vector DBs", "n8n", "Zapier", "Automation"],
+  },
+  {
+    id: "salesforce",
+    icon: CloudCheck,
+    color: "blue",
+    title: "Salesforce Consulting",
+    subtitle: "Cleaner CRM. Better Pipeline Visibility.",
+    desc: "We configure Salesforce, automate CRM workflows, connect data, and build dashboards that help sales and service teams work with confidence.",
+    image: imgDigitalConsulting,
+    features: [
+      "Sales Cloud and Service Cloud setup",
+      "Lead and opportunity automation",
+      "Custom objects, fields, and layouts",
+      "Apex, Flow, and integration support",
+      "Dashboards and CRM reporting",
+      "User training and CRM optimisation",
+    ],
+    tags: ["Sales Cloud", "Service Cloud", "Apex", "Flow", "Einstein AI", "CRM"],
   },
 ];
 
@@ -196,6 +270,16 @@ const techGroups = [
     ],
   },
   {
+    category: "DevOps & Cloud",
+    color: "secondary",
+    items: [
+      { label: "AWS", icon: <CloudCog className="w-5 h-5" /> },
+      { label: "Docker", icon: <Server className="w-5 h-5" /> },
+      { label: "CI/CD", icon: <GitBranch className="w-5 h-5" /> },
+      { label: "Cloudflare", icon: <CloudCheck className="w-5 h-5" /> },
+    ],
+  },
+  {
     category: "Salesforce",
     color: "primary",
     items: [
@@ -239,11 +323,11 @@ export default function Services() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
+            className="mobile-page-hero-title text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
-            Website, App & <br />
+            Digital Growth <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              Marketing Services
+              Services
             </span>
           </motion.h1>
 
@@ -253,8 +337,8 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl font-bold text-white/70 max-w-3xl mx-auto mb-10"
           >
-            Website development, mobile app development, SEO, digital marketing, and
-            brand design services built around measurable business results.
+            Websites, mobile apps, SEO strategy, digital marketing, brand design,
+            DevOps, AI automation, and Salesforce services built around measurable results.
           </motion.p>
 
           {/* Service nav pills */}
@@ -266,15 +350,16 @@ export default function Services() {
           >
             {services.map((s) => {
               const Icon = s.icon;
+              const servicePage = servicePages.find((page) => page.id === s.id);
               return (
-                <a
+                <Link
                   key={s.id}
-                  href={`#${s.id}`}
+                  href={servicePage ? `/services/${servicePage.slug}` : `/services#${s.id}`}
                   className={`px-5 py-2 rounded-full bg-white/10 border border-white/20 font-bold uppercase tracking-wider text-sm flex items-center gap-2 text-white hover:bg-white/20 transition-colors`}
                 >
                   <Icon className={`w-4 h-4 ${colorMap[s.color]}`} />
                   {s.title}
-                </a>
+                </Link>
               );
             })}
           </motion.div>
@@ -289,7 +374,7 @@ export default function Services() {
           <section
             key={service.id}
             id={service.id}
-            className={`py-24 ${i % 2 === 0 ? "" : "bg-black/30"} border-t border-white/5`}
+          className={`py-16 md:py-24 ${i % 2 === 0 ? "" : "bg-black/30"} border-t border-white/5`}
           >
             <div className="container mx-auto px-4 max-w-7xl">
               <div className={`flex flex-col ${isReverse ? "lg:flex-row-reverse" : "lg:flex-row"} items-center gap-12 lg:gap-20`}>
@@ -321,7 +406,7 @@ export default function Services() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="w-full lg:w-1/2 space-y-6 text-center lg:text-left"
+                className="w-full max-w-xl space-y-6 text-center lg:w-1/2 lg:max-w-none lg:text-left"
                 >
                   <p className={`font-black uppercase tracking-[0.3em] text-sm ${colorMap[service.color]}`}>
                     {service.subtitle}
@@ -333,7 +418,7 @@ export default function Services() {
                     {service.desc}
                   </p>
 
-                  <ul className="space-y-3 text-left">
+                  <ul className="mx-auto max-w-md space-y-3 text-left lg:mx-0 lg:max-w-none">
                     {service.features.map((feat, j) => (
                       <li key={j} className="flex items-center gap-3 text-white/80 font-bold">
                         <CheckCircle className={`w-5 h-5 shrink-0 ${colorMap[service.color]}`} />
@@ -343,7 +428,7 @@ export default function Services() {
                   </ul>
 
                   {/* Tech tags */}
-                  <div className="flex flex-wrap gap-2 pt-2">
+                  <div className="mx-auto flex max-w-md flex-wrap justify-center gap-2 pt-2 lg:mx-0 lg:max-w-none lg:justify-start">
                     {service.tags.map((tag, j) => (
                       <span
                         key={j}
@@ -357,15 +442,15 @@ export default function Services() {
                   <Button
                     asChild
                     size="lg"
-                    className={`rounded-full h-14 px-8 text-lg font-black uppercase tracking-widest text-white hover:scale-105 transition-all ${
+                    className={`mx-auto rounded-full h-14 px-8 text-lg font-black uppercase tracking-widest text-white hover:scale-105 transition-all lg:mx-0 ${
                       service.color === "primary" ? "bg-primary hover:bg-primary/90 shadow-[0_0_30px_rgba(var(--primary),0.4)]" :
                       service.color === "secondary" ? "bg-secondary hover:bg-secondary/90 shadow-[0_0_30px_rgba(var(--secondary),0.4)]" :
                       service.color === "accent" ? "bg-accent hover:bg-accent/90" :
                       "bg-blue-600 hover:bg-blue-500"
                     }`}
                   >
-                    <Link href="/contact">
-                      Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
+                    <Link href={`/services/${servicePages.find((page) => page.id === service.id)?.slug ?? ""}`}>
+                      View Details <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   </Button>
                 </motion.div>

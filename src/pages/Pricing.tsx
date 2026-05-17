@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   CheckCircle, X, ArrowRight, Zap, Shield, Star,
-  ChevronDown, ChevronUp,
+  ChevronDown, ChevronUp, Clock,
 } from "lucide-react";
 
 type BillingCycle = "monthly" | "yearly";
@@ -71,6 +71,29 @@ const plans = [
     description:
       "Full-custom strategy, dedicated team, and white-glove delivery for complex, high-stakes builds.",
   },
+];
+
+const hourlyRates = [
+  { role: "Strategy & Consulting", rate: "$75/hr", note: "Discovery, planning, audits, roadmaps" },
+  { role: "UI/UX & Brand Design", rate: "$65/hr", note: "Interfaces, brand systems, design assets" },
+  { role: "Web Development", rate: "$85/hr", note: "Frontend, CMS, e-commerce, integrations" },
+  { role: "Mobile App Development", rate: "$95/hr", note: "React Native, iOS/Android builds, APIs" },
+  { role: "Digital Marketing", rate: "$70/hr", note: "Paid ads, funnels, analytics, CRO" },
+  { role: "SEO Strategy", rate: "$80/hr", note: "Technical SEO, content strategy, schema, reporting" },
+  { role: "DevOps & Cloud", rate: "$110/hr", note: "CI/CD, cloud deployment, monitoring" },
+  { role: "AI Automation", rate: "$125/hr", note: "AI workflows, agents, automation systems" },
+  { role: "Salesforce Consulting", rate: "$130/hr", note: "Sales Cloud, Service Cloud, Flow, Apex" },
+];
+
+const servicePackages = [
+  { service: "Website Development", starter: "$799+", growth: "$1,799+", advanced: "$4,500+" },
+  { service: "Mobile App Development", starter: "$2,500+", growth: "$6,500+", advanced: "$15,000+" },
+  { service: "Digital Marketing", starter: "$699/mo", growth: "$1,499/mo", advanced: "$3,500/mo+" },
+  { service: "SEO Strategy", starter: "$599/mo", growth: "$1,299/mo", advanced: "$3,000/mo+" },
+  { service: "Graphics & Brand Design", starter: "$499+", growth: "$1,299+", advanced: "$3,000+" },
+  { service: "DevOps & Cloud", starter: "$900+", growth: "$2,500+", advanced: "$6,000+" },
+  { service: "AI Automation", starter: "$1,200+", growth: "$3,500+", advanced: "$8,000+" },
+  { service: "Salesforce Consulting", starter: "$1,500+", growth: "$4,000+", advanced: "$10,000+" },
 ];
 
 const faqs = [
@@ -188,7 +211,7 @@ export default function Pricing() {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
+            className="mobile-page-hero-title text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
             Website Design & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
@@ -309,6 +332,86 @@ export default function Pricing() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOURLY + SERVICE PRICING ── */}
+      <section className="py-24 border-t border-white/5 bg-black/20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-primary font-black uppercase tracking-widest text-xs mb-5">
+              <Clock className="h-4 w-4" />
+              Flexible Engagements
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter mb-4">
+              Hourly Rates & <span className="text-primary">Service Plans</span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto">
+              Use hourly support for focused tasks, or choose a package when the scope is clear.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 md:p-8"
+            >
+              <h3 className="text-2xl font-black uppercase tracking-normal text-white mb-6">
+                Hourly Pricing
+              </h3>
+              <div className="space-y-4">
+                {hourlyRates.map((item) => (
+                  <div key={item.role} className="rounded-2xl border border-white/10 bg-black/20 p-5">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-black uppercase tracking-wider text-white">{item.role}</p>
+                        <p className="text-sm text-white/50 font-medium mt-1">{item.note}</p>
+                      </div>
+                      <span className="shrink-0 rounded-full bg-primary/15 border border-primary/25 px-4 py-2 text-primary font-black">
+                        {item.rate}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.08 }}
+              className="overflow-x-auto rounded-[2rem] border border-white/10 bg-white/[0.05]"
+            >
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/10 bg-white/[0.04]">
+                    <th className="text-left py-5 px-6 text-white/50 font-black uppercase tracking-widest text-xs">Service</th>
+                    <th className="py-5 px-6 text-center text-primary font-black uppercase tracking-widest text-xs">Starter</th>
+                    <th className="py-5 px-6 text-center text-secondary font-black uppercase tracking-widest text-xs">Growth</th>
+                    <th className="py-5 px-6 text-center text-accent font-black uppercase tracking-widest text-xs">Advanced</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {servicePackages.map((item, i) => (
+                    <tr key={item.service} className={`border-b border-white/5 ${i % 2 === 0 ? "bg-transparent" : "bg-white/[0.02]"}`}>
+                      <td className="py-5 px-6 text-white font-bold">{item.service}</td>
+                      <td className="py-5 px-6 text-center text-white/75 font-black">{item.starter}</td>
+                      <td className="py-5 px-6 text-center text-white/75 font-black">{item.growth}</td>
+                      <td className="py-5 px-6 text-center text-white/75 font-black">{item.advanced}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </motion.div>
           </div>
         </div>
       </section>
