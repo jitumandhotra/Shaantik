@@ -149,9 +149,9 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
-            Our <br />
+            Projects & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">
-              Work
+              Case Studies
             </span>
           </motion.h1>
 
@@ -161,8 +161,8 @@ export default function Projects() {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl font-bold text-white/70 max-w-3xl mx-auto"
           >
-            200+ projects shipped. Every one a partnership. Here are some highlights
-            from across our four service lines.
+            Explore website, mobile app, branding, and marketing projects built to
+            improve traffic, conversions, product adoption, and revenue.
           </motion.p>
         </div>
       </section>

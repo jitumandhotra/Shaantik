@@ -241,9 +241,9 @@ export default function Services() {
             transition={{ delay: 0.1 }}
             className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
-            What We <br />
+            Website, App & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              Deliver
+              Marketing Services
             </span>
           </motion.h1>
 
@@ -253,8 +253,8 @@ export default function Services() {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl font-bold text-white/70 max-w-3xl mx-auto mb-10"
           >
-            Four core service lines. One agency built around your results. Scroll down to
-            explore what we can build together.
+            Website development, mobile app development, SEO, digital marketing, and
+            brand design services built around measurable business results.
           </motion.p>
 
           {/* Service nav pills */}

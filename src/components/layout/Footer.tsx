@@ -65,11 +65,11 @@ export default function Footer() {
           <div>
             <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-5">Contact</h4>
             <div className="flex flex-col gap-4">
-              <a href="tel:+19993452577" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
+              <a href="tel:+917986306280" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all mt-0.5">
                   <Phone className="w-3 h-3" />
                 </span>
-                +1 (999) 345 2577
+                +91 79863 06280
               </a>
               <a href="mailto:shaantik01@gmail.com" className="flex items-start gap-3 text-white/50 hover:text-primary transition-colors text-sm group">
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all mt-0.5">
@@ -81,7 +81,7 @@ export default function Footer() {
                 <span className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-3 h-3" />
                 </span>
-                301 Princes Street,<br />Digital District
+                Digital-first agency<br />Remote &amp; worldwide
               </div>
             </div>
           </div>
@@ -160,14 +160,14 @@ export default function Footer() {
           {/* Social icons — center */}
           <div className="flex items-center gap-2">
             {[
-              { icon: Instagram, label: "Instagram", href: "#" },
-              { icon: Facebook,  label: "Facebook",  href: "#" },
-              { icon: Twitter,   label: "Twitter",   href: "#" },
-            ].map(({ icon: Icon, label, href }) => (
-              <a key={label} href={href} aria-label={label}
+              { icon: Instagram, label: "Instagram" },
+              { icon: Facebook,  label: "Facebook"  },
+              { icon: Twitter,   label: "X"         },
+            ].map(({ icon: Icon, label }) => (
+              <button key={label} type="button" onClick={() => handleComingSoon(label)} aria-label={label}
                 className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all">
                 <Icon className="w-3.5 h-3.5" />
-              </a>
+              </button>
             ))}
             <button onClick={() => handleComingSoon("TikTok")} aria-label="TikTok"
               className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all">
@@ -181,9 +181,9 @@ export default function Footer() {
 
           {/* Legal links — right */}
           <div className="flex items-center gap-6 shrink-0">
-            <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Cookie Policy</Link>
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>Cookie Policy</span>
           </div>
 
         </div>

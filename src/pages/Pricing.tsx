@@ -190,9 +190,9 @@ export default function Pricing() {
             transition={{ delay: 0.1 }}
             className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
-            Clear &amp; Fair <br />
+            Website Design & <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              Pricing
+              Marketing Pricing
             </span>
           </motion.h1>
 
@@ -202,8 +202,8 @@ export default function Pricing() {
             transition={{ delay: 0.2 }}
             className="text-xl md:text-2xl font-bold text-white/70 max-w-3xl mx-auto mb-10"
           >
-            No hidden fees. No surprises. Choose a plan that matches your
-            ambition — and scale when you're ready.
+            Transparent pricing for website development, SEO optimisation, and
+            digital growth packages that can scale with your business.
           </motion.p>
 
           {/* Billing toggle */}

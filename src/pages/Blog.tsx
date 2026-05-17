@@ -5,106 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Clock, Tag, Bell } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
-import blog01 from "@/assets/images/blog_01_website_mistakes.png";
-import blog02 from "@/assets/images/blog_02_google_ads.png";
-import blog03 from "@/assets/images/blog_03_react_vs_flutter.png";
-import blog04 from "@/assets/images/blog_04_brand_audit.png";
-import blog05 from "@/assets/images/blog_05_revenue_growth.png";
-import blog06 from "@/assets/images/blog_06_ux_principles.png";
-import blog07 from "@/assets/images/blog_07_seo_2025.png";
-import blog08 from "@/assets/images/blog_08_typescript_react.png";
-
-type BlogCategory = "All" | "Web Dev" | "Marketing" | "Design" | "Mobile" | "Business";
-
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  category: Exclude<BlogCategory, "All">;
-  readTime: string;
-  date: string;
-  image: string;
-  featured?: boolean;
-}
-
-const posts: BlogPost[] = [
-  {
-    id: 1,
-    title: "10 Website Mistakes That Are Costing You Customers (And How to Fix Them)",
-    excerpt: "From slow load times to broken mobile layouts, these common website errors are silently driving away your prospects. Here's a practical checklist to audit and fix each one.",
-    category: "Web Dev",
-    readTime: "8 min read",
-    date: "Mar 20, 2025",
-    image: blog01,
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Why Most Google Ads Campaigns Fail in the First 90 Days",
-    excerpt: "Budget misallocation, wrong bidding strategies, and poor landing pages are the real culprits. We break down the top 5 reasons — and the fixes that actually work.",
-    category: "Marketing",
-    readTime: "6 min read",
-    date: "Mar 14, 2025",
-    image: blog02,
-  },
-  {
-    id: 3,
-    title: "React Native vs Flutter in 2025: What Should You Choose for Your App?",
-    excerpt: "Both are excellent — but the right choice depends on your team, timeline, and product goals. Here's an honest, side-by-side breakdown to help you decide.",
-    category: "Mobile",
-    readTime: "10 min read",
-    date: "Mar 08, 2025",
-    image: blog03,
-  },
-  {
-    id: 4,
-    title: "The Brand Audit: 7 Signs Your Visual Identity Is Hurting Your Business",
-    excerpt: "Inconsistent logos, outdated color palettes, and poor typography are eroding trust with your audience. Find out how to spot the signs and what to do about it.",
-    category: "Design",
-    readTime: "7 min read",
-    date: "Feb 27, 2025",
-    image: blog04,
-  },
-  {
-    id: 5,
-    title: "How We Took a Client from $0 to $250K in Monthly Revenue in 6 Months",
-    excerpt: "A full breakdown of the strategy, tools, and tactics we used to build a complete digital presence from scratch — including the mistakes we made along the way.",
-    category: "Business",
-    readTime: "12 min read",
-    date: "Feb 18, 2025",
-    image: blog05,
-  },
-  {
-    id: 6,
-    title: "The UX Principles Every Business Owner Should Know Before Building a Product",
-    excerpt: "Great UX isn't just about aesthetics — it's about reducing friction, building trust, and guiding users to take action. Here are the fundamentals that matter most.",
-    category: "Design",
-    readTime: "9 min read",
-    date: "Feb 10, 2025",
-    image: blog06,
-  },
-  {
-    id: 7,
-    title: "SEO in 2025: What's Changed and What You Should Prioritize Right Now",
-    excerpt: "AI-generated content, Core Web Vitals updates, and the rise of zero-click searches have changed the SEO game. Here's how to adapt your strategy.",
-    category: "Marketing",
-    readTime: "11 min read",
-    date: "Jan 30, 2025",
-    image: blog07,
-  },
-  {
-    id: 8,
-    title: "TypeScript for React Developers: A Practical Starter Guide",
-    excerpt: "Stop putting it off. TypeScript makes your React apps more maintainable, your team more productive, and your codebase less prone to runtime surprises.",
-    category: "Web Dev",
-    readTime: "8 min read",
-    date: "Jan 22, 2025",
-    image: blog08,
-  },
-];
-
-const categories: BlogCategory[] = ["All", "Web Dev", "Marketing", "Design", "Mobile", "Business"];
+import { blogCategories as categories, blogPosts as posts, type BlogCategory } from "@/data/blogPosts";
 
 const categoryColors: Partial<Record<BlogCategory, string>> = {
   "Web Dev":   "text-primary border-primary/30 bg-primary/10",
@@ -161,9 +62,9 @@ export default function Blog() {
             transition={{ delay: 0.1 }}
             className="text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
-            Insights & <br />
+            Digital Strategy <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary">
-              Ideas
+              Blog
             </span>
           </motion.h1>
 
@@ -221,8 +122,10 @@ export default function Blog() {
                     <span>•</span>
                     <span>{featured.date}</span>
                   </div>
-                  <Button className="rounded-full h-14 px-8 text-lg font-black uppercase tracking-widest bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_rgba(var(--primary),0.3)] hover:scale-105 transition-all w-fit">
-                    Read Article <ArrowRight className="ml-2 w-5 h-5" />
+                  <Button asChild className="rounded-full h-14 px-8 text-lg font-black uppercase tracking-widest bg-primary hover:bg-primary/90 text-white shadow-[0_0_30px_rgba(var(--primary),0.3)] hover:scale-105 transition-all w-fit">
+                    <Link href={`/blog/${featured.slug}`}>
+                      Read Article <ArrowRight className="ml-2 w-5 h-5" />
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -291,9 +194,9 @@ export default function Blog() {
                     {post.excerpt}
                   </p>
 
-                  <button className="flex items-center gap-2 text-primary font-black uppercase tracking-widest text-sm hover:gap-4 transition-all group-hover:text-primary/80">
+                  <Link href={`/blog/${post.slug}`} className="flex items-center gap-2 text-primary font-black uppercase tracking-widest text-sm hover:gap-4 transition-all group-hover:text-primary/80">
                     Read More <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </motion.article>
             ))}

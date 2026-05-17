@@ -9,6 +9,7 @@ import Contact  from "@/pages/Contact";
 import Services from "@/pages/Services";
 import Projects from "@/pages/Projects";
 import Blog     from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import Pricing  from "@/pages/Pricing";
 import NotFound from "@/pages/NotFound";
 
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/contact"  component={Contact}  />
         <Route path="/services" component={Services} />
         <Route path="/projects" component={Projects} />
+        <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog"     component={Blog}     />
         <Route path="/pricing"  component={Pricing}  />
         <Route component={NotFound} />

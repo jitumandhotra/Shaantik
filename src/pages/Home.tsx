@@ -18,7 +18,7 @@ import hqImage from "@/assets/images/shaantik-expertise.svg";
 import logo from "@assets/shaantik_logo.png";
 
 // Social / Work Images
-import imgDigitalConsulting from "@/assets/images/01-digital-consulting.svg";
+import imgDigitalConsulting from "@/assets/images/01-digital-consulting 1.png";
 import imgBrandStrategy from "@/assets/images/02-brand-strategy.svg";
 import imgAppDesign from "@/assets/images/03-app-design.svg";
 import imgWebDevelopment from "@/assets/images/04-web-development.svg";
@@ -1171,7 +1171,11 @@ export default function Home() {
         {/* Social Platform Cards */}
         <div className="container mx-auto px-4 relative z-30">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            <a href="#" className="block group">
+            <button
+              type="button"
+              onClick={() => toast({ title: "Instagram coming soon", description: "Follow our work through the project gallery for now." })}
+              className="block group text-left"
+            >
               <div className="p-8 rounded-[2rem] bg-white/10 border border-white/20 hover:shadow-[0_0_50px_rgba(255,0,128,0.3)] hover:-translate-y-4 transition-all duration-500 flex flex-col items-center justify-center gap-6 group-hover:border-pink-500/50">
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-500 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
                   <Instagram className="w-10 h-10 text-white" />
@@ -1181,8 +1185,12 @@ export default function Home() {
                   <div className="text-white/60 font-bold text-sm mt-1">@shaantik</div>
                 </div>
               </div>
-            </a>
-            <a href="#" className="block group">
+            </button>
+            <button
+              type="button"
+              onClick={() => toast({ title: "Facebook coming soon", description: "Follow our work through the project gallery for now." })}
+              className="block group text-left"
+            >
               <div className="p-8 rounded-[2rem] bg-white/10 border border-white/20 hover:shadow-[0_0_50px_rgba(37,99,235,0.4)] hover:-translate-y-4 transition-all duration-500 flex flex-col items-center justify-center gap-6 group-hover:border-blue-500/50">
                 <div className="w-20 h-20 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:-rotate-12 transition-transform duration-500">
                   <Facebook className="w-10 h-10 text-white" />
@@ -1192,8 +1200,12 @@ export default function Home() {
                   <div className="text-white/60 font-bold text-sm mt-1">/shaantik</div>
                 </div>
               </div>
-            </a>
-            <a href="#" className="block group">
+            </button>
+            <button
+              type="button"
+              onClick={() => toast({ title: "X profile coming soon", description: "Read our latest thinking on the blog for now." })}
+              className="block group text-left"
+            >
               <div className="p-8 rounded-[2rem] bg-white/10 border border-white/20 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] hover:-translate-y-4 transition-all duration-500 flex flex-col items-center justify-center gap-6 group-hover:border-white/50">
                 <div className="w-20 h-20 rounded-2xl bg-black border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
                   <Twitter className="w-10 h-10 text-white fill-current" />
@@ -1203,8 +1215,12 @@ export default function Home() {
                   <div className="text-white/60 font-bold text-sm mt-1">@shaantik</div>
                 </div>
               </div>
-            </a>
-            <a href="#" className="block group">
+            </button>
+            <button
+              type="button"
+              onClick={() => toast({ title: "YouTube coming soon", description: "Video content is planned after the next project drops." })}
+              className="block group text-left"
+            >
               <div className="p-8 rounded-[2rem] bg-white/10 border border-white/20 hover:shadow-[0_0_50px_rgba(220,38,38,0.4)] hover:-translate-y-4 transition-all duration-500 flex flex-col items-center justify-center gap-6 group-hover:border-red-500/50">
                 <div className="w-20 h-20 rounded-2xl bg-red-600 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
                   <Youtube className="w-10 h-10 text-white" />
@@ -1214,7 +1230,7 @@ export default function Home() {
                   <div className="text-white/60 font-bold text-sm mt-1">Shaantik TV</div>
                 </div>
               </div>
-            </a>
+            </button>
           </div>
         </div>
       </section>

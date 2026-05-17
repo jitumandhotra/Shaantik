@@ -1,22 +1,23 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import { getBlogPostBySlug } from "@/data/blogPosts";
 
 const SITE_URL = "https://shaantik.com";
 const DEFAULT_IMAGE = `${SITE_URL}/og.png`;
 
 const pages: Record<string, { title: string; description: string; robots?: string }> = {
   "/": {
-    title: "Shaantik | Creative Digital Agency",
+    title: "Shaantik | Website Development, SEO & Digital Marketing Agency",
     description:
       "Shaantik is a creative digital agency for high-performance websites, mobile apps, branding, SEO, digital marketing, AI automation, data science, and Salesforce solutions.",
   },
   "/services": {
-    title: "Services | Shaantik",
+    title: "Website Development, App Development & Digital Marketing Services | Shaantik",
     description:
       "Explore Shaantik services including website development, mobile app development, SEO, digital marketing, brand design, AI automation, data science, and Salesforce consulting.",
   },
   "/projects": {
-    title: "Projects | Shaantik",
+    title: "Shaantik Projects and Case Studies | Websites, Apps & Marketing",
     description:
       "See Shaantik case studies and digital projects across websites, mobile apps, branding, marketing, SaaS platforms, and product design.",
   },
@@ -26,12 +27,12 @@ const pages: Record<string, { title: string; description: string; robots?: strin
       "Learn about Shaantik, a strategy-led creative digital agency helping brands grow with design, development, marketing, automation, and measurable execution.",
   },
   "/blog": {
-    title: "Blog | Shaantik Digital Strategy Insights",
+    title: "Digital Strategy Blog | SEO, Web Development & Marketing | Shaantik",
     description:
       "Read Shaantik insights on website development, SEO, digital marketing, brand strategy, UX, React, TypeScript, and business growth.",
   },
   "/pricing": {
-    title: "Pricing | Shaantik",
+    title: "Website Design and Digital Marketing Pricing | Shaantik",
     description:
       "Review Shaantik pricing packages for websites, apps, branding, digital marketing, SEO, and growth-focused digital services.",
   },
@@ -60,7 +61,14 @@ export default function SEO() {
 
   useEffect(() => {
     const path = location.split("?")[0] || "/";
-    const page = pages[path] ?? notFoundPage;
+    const blogMatch = path.match(/^\/blog\/([^/]+)$/);
+    const blogPost = blogMatch ? getBlogPostBySlug(blogMatch[1]) : undefined;
+    const page = blogPost
+      ? {
+          title: `${blogPost.title} | Shaantik Blog`,
+          description: blogPost.excerpt,
+        }
+      : pages[path] ?? notFoundPage;
     const canonical = `${SITE_URL}${path === "/" ? "/" : path}`;
 
     document.title = page.title;

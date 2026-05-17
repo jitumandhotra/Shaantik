@@ -262,7 +262,7 @@ export default function Contact() {
             animate={{ y: 0, opacity: 1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter leading-[0.9] mb-6"
           >
-            Let's <span className="text-primary">Talk</span>
+            Contact <span className="text-primary">Shaantik</span>
           </motion.h1>
 
           <motion.p
@@ -302,8 +302,8 @@ export default function Contact() {
                 icon: <Phone className="w-8 h-8 text-primary" />,
                 bg: "bg-primary/20",
                 title: "Phone",
-                line1: "+1 (800) 123-4567",
-                line2: "Mon–Fri 9am–6pm EST",
+                line1: "+91 79863 06280",
+                line2: "Mon-Fri 9am-6pm IST",
                 action: { label: "Call Now", href: "tel:+917986306280", variant: "primary" },
               },
               {
@@ -320,7 +320,7 @@ export default function Contact() {
                 title: "Office",
                 line1: "Digital-First Agency",
                 line2: "Remote & Nationwide",
-                action: { label: "Get Directions", href: "#location", variant: "outline" },
+                action: { label: "Start Online", href: "#contact-form", variant: "outline" },
               },
               {
                 icon: <Clock className="w-8 h-8 text-blue-400" />,
@@ -383,7 +383,7 @@ export default function Contact() {
       </section>
 
       {/* ── FORM + SIDEBAR ── */}
-      <section className="py-24 relative">
+      <section id="contact-form" className="py-24 relative">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
 
